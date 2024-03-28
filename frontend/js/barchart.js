@@ -26,24 +26,28 @@ function changeProfile(profileName) {
 // for pop-up
 function toggleMenuSettings() {
   var subMenuSettings = document.getElementById('subMenu-settings');
-  subMenuSettings.classList.toggle("open-menu");
+  subMenuSettings.classList.toggle('open-menu');
 }
 
 function toggleMenuNotification() {
   var subMenuNotification = document.getElementById('subMenu-notification');
-  subMenuNotification.classList.toggle("open-menu");
+  subMenuNotification.classList.toggle('open-menu');
 }
 
-// closing window with clicking away 
-document.addEventListener('click', function(event) {
+// closing window with clicking away
+document.addEventListener('click', function (event) {
   var subMenuSettings = document.getElementById('subMenu-settings');
   var subMenuNotification = document.getElementById('subMenu-notification');
-  var isClickInsideSettings = document.getElementById('settings-button').contains(event.target);
-  var isClickInsideNotification = document.getElementById('notification-icon').contains(event.target);
+  var isClickInsideSettings = document
+    .getElementById('settings-button')
+    .contains(event.target);
+  var isClickInsideNotification = document
+    .getElementById('notification-icon')
+    .contains(event.target);
 
   if (!isClickInsideSettings && !isClickInsideNotification) {
-      subMenuSettings.classList.remove('open-menu');
-      subMenuNotification.classList.remove('open-menu');
+    subMenuSettings.classList.remove('open-menu');
+    subMenuNotification.classList.remove('open-menu');
   }
 });
 
@@ -54,55 +58,57 @@ function createLineChart() {
 
   // Create the line chart
   var lineChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-          datasets: [{
-              label: 'Energy Saved (kWh)',
-              data: [30, 35, 40, 45, 50, 55, 60], // Data adjusted to start from 30
-              backgroundColor: 'rgba(54, 162, 235, 0.2)',
-              borderColor: 'rgba(54, 162, 235, 1)',
-              borderWidth: 2
-          }]
-      },
-      options: {
-          scales: {
-              y: {
-                  beginAtZero: true, // Start from 30
-                  grid: {
-                      color: 'rgba(255, 255, 255, 0.1)'
-                  },
-                  ticks: {
-                      color: 'rgba(255, 255, 255, 0.7)'
-                  },
-                  title: {
-                      display: true,
-                      text: 'Energy Saved (kWh)',
-                      color: 'rgba(255, 255, 255, 0.7)'
-                  }
-              },
-              x: {
-                  grid: {
-                      color: 'rgba(255, 255, 255, 0.1)'
-                  },
-                  ticks: {
-                      color: 'rgba(255, 255, 255, 0.7)'
-                  },
-                  title: {
-                      display: true,
-                      text: 'Month',
-                      color: 'rgba(255, 255, 255, 0.7)'
-                  }
-              }
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+      datasets: [
+        {
+          label: 'Energy Saved (kWh)',
+          data: [30, 35, 40, 45, 50, 55, 60], // Data adjusted to start from 30
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 2,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true, // Start from 30
+          grid: {
+            color: 'rgba(255, 255, 255, 0.1)',
           },
-          plugins: {
-              legend: {
-                  labels: {
-                      color: 'rgba(255, 255, 255, 0.7)'
-                  }
-              }
-          }
-      }
+          ticks: {
+            color: 'rgba(255, 255, 255, 0.7)',
+          },
+          title: {
+            display: true,
+            text: 'Energy Saved (kWh)',
+            color: 'rgba(255, 255, 255, 0.7)',
+          },
+        },
+        x: {
+          grid: {
+            color: 'rgba(255, 255, 255, 0.1)',
+          },
+          ticks: {
+            color: 'rgba(255, 255, 255, 0.7)',
+          },
+          title: {
+            display: true,
+            text: 'Month',
+            color: 'rgba(255, 255, 255, 0.7)',
+          },
+        },
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: 'rgba(255, 255, 255, 0.7)',
+          },
+        },
+      },
+    },
   });
 
   return lineChart;
@@ -110,3 +116,6 @@ function createLineChart() {
 
 // Initialize the line chart
 var lineChart = createLineChart();
+
+const usernameSpots = document.querySelectorAll('.username');
+usernameSpots.forEach((el) => (el.textContent = localStorage.getItem('name')));

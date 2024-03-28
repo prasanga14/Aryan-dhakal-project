@@ -100,7 +100,7 @@ display=swap" rel="stylesheet">
         <div class="profile">
             <img id="profileImage" src="../images/jessica.png" alt="Profile Picture">
             <select id="profileDropdown" onchange="changeProfile(this.value)">
-                <option value="jessica">Jessica Wingelton</option>
+                <option value="jessica" class="username"></option>
                 <option value="mom">Mom's Account</option>
                 <option value="dad">Dad's Account</option>
                 <option value="son">Son Account</option>
@@ -216,7 +216,7 @@ display=swap" rel="stylesheet">
                 <div class="profile-1 profile-all">
                     <div class="profil-1-align">
                         <img src="../images/jessica.png" alt="" class="profile-1-img img-profile">
-                        <h4>Jessica</h4>
+                        <h4 class="username"></h4>
                         <p>Full Access</p>
                     </div>
                 </div>
@@ -260,9 +260,9 @@ display=swap" rel="stylesheet">
         <div class="profile-section-left">
             <img src="../images/jessica.png" alt="profile" class="profile-pf-img">
             <button class="edit-btn">Change Picture</button>
-            <h4><b>Name:</b> Jessica Wingelton</h4>
-            <h4><b>Username:</b> JessicaUser1234</h4>
-            <p><b>Bio:</b> Hey! I'm Jessica and I am a Machine Learning Engineer as well as a Automation enthusiast passionate and fond of Smart home technologies.  </p>
+            <h4><b>Name: <span class="username"></span></b></h4>
+            <h4><b>Username: <span class="username"></span></b> </h4>
+            <p class="userInfo"><b>Bio:</b> Hey! I'm Jessica and I am a Machine Learning Engineer as well as a Automation enthusiast passionate and fond of Smart home technologies.  </p>
             <h4><b>Contact:</b> 01-44567839</h4>
             <h4><b>Recent Activity:</b> Set timer for lights to turn off at 6pm.</h4>
         </div>
